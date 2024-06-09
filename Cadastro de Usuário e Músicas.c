@@ -12,7 +12,34 @@
 #define TAM_TITULO 50
 #define TAM_MUSICAS 100
 #define MAX_USUARIOS 100
+#define MAX_MUSICAS 1000 
+
+#define MAX_USUARIOS 100
 #define MAX_MUSICAS 1000
+#define MAX_PLAYLISTS 100
+#define MAX_MUSICAS_PLAYLIST 100
+
+typedef struct {
+    int codigo;
+    char nome[100];
+    char login[50];
+    char senha[50];
+} Usuario;
+
+typedef struct {
+    int codigo;
+    char titulo[100];
+    char artista[100];
+} Musica;
+
+typedef struct {
+    int codigo;
+    char titulo[100];
+    int codigoUsuario; // Refere-se ao criador da playlist
+    int musicas[MAX_MUSICAS_PLAYLIST];
+    int quantidadeMusicas;
+} Playlist;
+
 
 typedef struct {
     int codigo; // autoincremento
