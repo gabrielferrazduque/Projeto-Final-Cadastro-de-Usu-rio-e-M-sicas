@@ -124,4 +124,73 @@ int main() {
     menuPrincipal();
     return 0;
 }
+void menuAdministrador(struct Usuario usuarios[], int qtdUsuarios, struct Musica musicas[], int qtdMusicas, struct Playlist playlists[], int qtdPlaylists) {
+    // Funções específicas do administrador
+}
 
+void menuUsuario(struct Usuario *usuario, struct Musica musicas[], int qtdMusicas, struct Playlist playlists[], int qtdPlaylists) {
+    // Funções específicas do usuário
+}
+
+int main() {
+    struct Usuario usuarios[TAM_MAX_PLYLST];
+    struct Musica musicas[TAM_MAX_PLYLST];
+    struct Playlist playlists[TAM_MAX_PLYLST];
+
+    int qtdUsuarios = 0, qtdMusicas = 0, qtdPlaylists = 0;
+    int opcao;
+    char senha[TAM_SENHA];
+
+    while (1) {
+        printf("Escolha o tipo de usuário:\n1. Administrador\n2. Usuário\n3. Sair\n");
+        scanf("%d", &opcao);
+        if (opcao == 1) {
+            printf("Digite a senha de administrador: ");
+            scanf("%s", senha);
+            if (strcmp(senha, "m@st3r2024") == 0) {
+                menuAdministrador(usuarios, qtdUsuarios, musicas, qtdMusicas, playlists, qtdPlaylists);
+            } else {
+                printf("Senha incorreta!\n");
+            }
+        } else if (opcao == 2) {
+            int logado = 0;
+            while (!logado) {
+                printf("1. Login\n2. Cadastro\n3. Voltar\n");
+                scanf("%d", &opcao);
+                if (opcao == 1) {
+                    char login[TAM_LOGIN], senha[TAM_SENHA];
+                    printf("Login: ");
+                    scanf("%s", login);
+                    printf("Senha: ");
+                    scanf("%s", senha);
+                    for (int i = 0; i < qtdUsuarios; i++) {
+                        if (strcmp(usuarios[i].login, login) == 0 && strcmp(usuarios[i].senha, senha) == 0) {
+                            menuUsuario(&usuarios[i], musicas, qtdMusicas, playlists, qtdPlaylists);
+                            logado = 1;
+                            break;
+                        }
+                    }
+                    if (!logado) {
+                        printf("Login ou senha incorretos!\n");
+                    }
+                } else if (opcao == 2) {
+                    struct Usuario novoUsuario;
+                    novoUsuario.codigo = qtdUsuarios + 1;
+                    printf("Nome: ");
+                    scanf("%s", novoUsuario.nome);
+                    printf("Login: ");
+                    scanf("%s", novoUsuario.login);
+                    printf("Senha: ");
+                    scanf("%s", novoUsuario.senha);
+                    usuarios[qtdUsuarios++] = novoUsuario;
+                } else {
+                    break;
+                }
+            }
+        } else {
+            break;
+        }
+    }
+
+    return 0;
+}
