@@ -1,7 +1,11 @@
 # Projeto-Final-Cadastro-de-Usu-rio-e-M-sicas
 Projeto Final  Cadastro de Usuário e Músicas
-include <stdio.h>
+#include <stdio.h>
+#include <string.h> 
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+
 
 #define TAM_MAX_PLYLST 200
 #define TAM_NOME 50
