@@ -15,7 +15,39 @@ struct Musica {
     char artista[TAM_NOME]; // nome do artista que canta esta música
 };
 
-struct Playlist {
+struct Playlist { 
+
+#define MAX_USUARIOS 100
+#define MAX_MUSICAS 1000
+
+Usuario usuarios[MAX_USUARIOS];
+Musica musicas[MAX_MUSICAS];
+int totalUsuarios = 0;
+int totalMusicas = 0;
+
+void menuPrincipal();
+void menuAdministrador();
+void menuUsuario();
+void loginAdministrador();
+void loginUsuario();
+void cadastrarUsuario();
+void listarUsuarios();
+void consultarUsuario();
+void alterarSenhaUsuario();
+void cadastrarMusica();
+void listarMusicas();
+void consultarMusica();
+void alterarMusica();
+void excluirMusica();
+void listarPlaylists();
+void consultarPlaylist();
+
+int main() {
+    menuPrincipal();
+    return 0;
+}
+
+
     int codigo; // autoincremento
     int codUsuario; // o código do usuário que criou a playlist
     char titulo[TAM_TITULO]; // título desta playlist
