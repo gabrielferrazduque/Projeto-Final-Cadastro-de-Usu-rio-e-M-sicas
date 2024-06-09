@@ -14,7 +14,39 @@ include <stdio.h>
 struct Musica {
     int codigo; // autoincremento
     char titulo[TAM_TITULO]; // título da música
-    char artista[TAM_NOME]; // nome do artista que canta esta música
+    char artista[TAM_NOME]; // nome do artista que canta esta música 
+
+#define MAX_USUARIOS 100
+#define MAX_MUSICAS 1000
+
+Usuario usuarios[MAX_USUARIOS];
+Musica musicas[MAX_MUSICAS];
+int totalUsuarios = 0;
+int totalMusicas = 0;
+
+void menuPrincipal();
+void menuAdministrador();
+void menuUsuario();
+void loginAdministrador();
+void loginUsuario();
+void cadastrarUsuario();
+void listarUsuarios();
+void consultarUsuario();
+void alterarSenhaUsuario();
+void cadastrarMusica();
+void listarMusicas();
+void consultarMusica();
+void alterarMusica();
+void excluirMusica();
+void listarPlaylists();
+void consultarPlaylist();
+
+int main() {
+    menuPrincipal();
+    return 0;
+}
+
+    
 };
 
 struct Playlist {
