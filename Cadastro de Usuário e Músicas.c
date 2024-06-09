@@ -33,3 +33,33 @@ struct Usuario {
     int qtdPlaylistsFav; // quantid. de playlists favoritadas pelo usuário
     int playlistsFav[TAM_PLAYLIST]; // códigos das playlists favoritadas pelo usuário
 };
+#define MAX_USUARIOS 100
+#define MAX_MUSICAS 1000
+
+Usuario usuarios[MAX_USUARIOS];
+Musica musicas[MAX_MUSICAS];
+int totalUsuarios = 0;
+int totalMusicas = 0;
+
+void menuPrincipal();
+void menuAdministrador();
+void menuUsuario();
+void loginAdministrador();
+void loginUsuario();
+void cadastrarUsuario();
+void listarUsuarios();
+void consultarUsuario();
+void alterarSenhaUsuario();
+void cadastrarMusica();
+void listarMusicas();
+void consultarMusica();
+void alterarMusica();
+void excluirMusica();
+void listarPlaylists();
+void consultarPlaylist();
+
+int main() {
+    menuPrincipal();
+    return 0;
+}
+
